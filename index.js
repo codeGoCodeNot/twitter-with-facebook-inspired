@@ -6,15 +6,16 @@ const logInValidation = () => {
   loginBTn.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const existingNotification = email.nextElementSibling;
-    if (
-      existingNotification &&
-      existingNotification.classList.contains("notification")
-    ) {
-      existingNotification.remove();
+    const emailNotif = email.nextElementSibling;
+    if (emailNotif && emailNotif.classList.contains("notification")) {
+      emailNotif.remove();
     }
 
-    if (email.value === "" || password.value === "") {
+    const passwordNotif = password.nextElementSibling;
+    if (passwordNotif && passwordNotif.classList.contains("notification"))
+      passwordNotif.remove();
+
+    if (email.value === "") {
       const notification = document.createElement("div");
       notification.classList.add("notification");
       notification.innerHTML = `The email or mobile number you entered isn’t connected to an account. 
@@ -24,6 +25,16 @@ const logInValidation = () => {
       notification.style.marginTop = "4px";
 
       email.insertAdjacentElement("afterend", notification);
+    } else if (password.value === "") {
+      const notification = document.createElement("div");
+      notification.classList.add("notification");
+      notification.innerHTML = `The password you've entered is incorrect. 
+      <strong>Forgot Password?</strong>`;
+      notification.style.color = "red";
+      notification.style.fontSize = ".8rem";
+      notification.style.marginTop = "4px";
+
+      password.insertAdjacentElement("afterend", notification);
     }
   });
 };
