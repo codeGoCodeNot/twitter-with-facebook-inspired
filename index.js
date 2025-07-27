@@ -19,7 +19,8 @@ const logInValidation = () => {
       const notification = document.createElement("div");
       notification.classList.add("notification");
       notification.innerHTML = `The email or mobile number you entered isn’t connected to an account. 
-      <strong>Find your account and log in.</strong>`;
+      <a href="forgot-password.html" style="color: red">
+      Find your account and log in.</a>`;
       notification.style.color = "red";
       notification.style.fontSize = ".8rem";
       notification.style.marginTop = "4px";
@@ -29,7 +30,7 @@ const logInValidation = () => {
       const notification = document.createElement("div");
       notification.classList.add("notification");
       notification.innerHTML = `The password you've entered is incorrect. 
-      <strong>Forgot Password?</strong>`;
+<a href="forgot-password.html" style="color: red">Forgot Password?</a>`;
       notification.style.color = "red";
       notification.style.fontSize = ".8rem";
       notification.style.marginTop = "4px";
